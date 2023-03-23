@@ -20,7 +20,10 @@ export default function Layout({ children }) {
         </div>
       </Drawer> */}
       <ResponsiveDrawer />
-      <Box className={styles.page}>{children}</Box>;
+      <Box sx={styles.containerCreate} className={styles.page}>
+        {children}
+      </Box>
+      ;
     </Box>
   );
 }

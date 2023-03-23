@@ -3,6 +3,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import NoteCard from "../components/NoteCard";
+import styles from "../styles/style";
 
 export default function Notes() {
   const [notes, setNotes] = useState([]);
@@ -23,7 +24,7 @@ export default function Notes() {
   };
 
   return (
-    <Container>
+    <Container sx={styles.container}>
       <Grid container spacing={3}>
         {notes.map((note) => (
           <Grid key={note.id} item xs={12} md={6} lg={4}>

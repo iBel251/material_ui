@@ -27,6 +27,25 @@ const styles = {
   root: {
     display: "flex",
   },
+  appBar: {
+    position: "fixed",
+    backgroundColor: "black",
+    width: { sm: `calc(100% - ${drawerWidth}px)` },
+    ml: { sm: `${drawerWidth}px` },
+  },
+  container: {
+    pt: "75px",
+  },
+  containerCreate: {
+    pt: "45px",
+    width: "100%",
+    background: "green",
+    height: "100vh",
+    margin: 0,
+    display: "flex",
+    flexDirection: "column",
+    alighItems: "center",
+  },
 };
 
 export default styles;

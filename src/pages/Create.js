@@ -1,4 +1,10 @@
-import { Typography, Button, ButtonGroup } from "@mui/material";
+import {
+  Typography,
+  Button,
+  ButtonGroup,
+  Box,
+  CssBaseline,
+} from "@mui/material";
 import { Container } from "@mui/system";
 import NextPlanOutlinedIcon from "@mui/icons-material/NextPlanOutlined";
 import {
@@ -42,7 +48,7 @@ export default function Create() {
   };
 
   return (
-    <Container>
+    <Box sx={styles.containerCreate}>
       <Typography sx={styles.titleSX} variant="h6" component="h2">
         Create a New Note
       </Typography>
@@ -96,6 +102,6 @@ export default function Create() {
         </Button>
       </form>
       <br />
-    </Container>
+    </Box>
   );
 }
