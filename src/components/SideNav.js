@@ -13,9 +13,13 @@ import ListItemText from "@mui/material/ListItemText";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import styles from "../styles/style";
+import InputBase from "@mui/material/InputBase";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import SearchIcon from "@mui/icons-material/Search";
 
 const drawerWidth = 240;
 
@@ -56,6 +60,19 @@ function ResponsiveDrawer(props) {
           </ListItem>
         ))}
       </List>
+      <Box
+        sx={{ display: { xs: "flex", sm: "none" }, justifyContent: "center" }}
+      >
+        <IconButton>
+          <NotificationsOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <SettingsOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <PersonOutlinedIcon />
+        </IconButton>
+      </Box>
     </div>
   );
 
@@ -69,7 +86,7 @@ function ResponsiveDrawer(props) {
       <AppBar sx={styles.appBar}>
         <Toolbar>
           <IconButton
-            color="inherit"
+            color="black"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
@@ -77,11 +94,31 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
-          </Typography>
+          <Box display="flex" justifyContent="space-between" p={2} width="100%">
+            {/* search bar */}
+            <Box display="flex" borderRadius="3px">
+              <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
+              <IconButton type="button" sx={{ p: 1 }}>
+                <SearchIcon />
+              </IconButton>
+            </Box>
+
+            {/* icons */}
+            <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+              <IconButton>
+                <NotificationsOutlinedIcon />
+              </IconButton>
+              <IconButton>
+                <SettingsOutlinedIcon />
+              </IconButton>
+              <IconButton>
+                <PersonOutlinedIcon />
+              </IconButton>
+            </Box>
+          </Box>
         </Toolbar>
       </AppBar>
+      {/* <Topbar /> */}
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -96,27 +133,11 @@ function ResponsiveDrawer(props) {
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
+          sx={styles.sidebarSmallScreen}
         >
           {drawer}
         </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-          open
-        >
+        <Drawer variant="permanent" sx={styles.sidebarBigScreen} open>
           {drawer}
         </Drawer>
       </Box>

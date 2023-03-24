@@ -52,7 +52,12 @@ export default function Create() {
       <Typography sx={styles.titleSX} variant="h6" component="h2">
         Create a New Note
       </Typography>
-      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+      <form
+        className="form"
+        noValidate
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
         <TextField
           onChange={(e) => setTitle(e.target.value)}
           sx={styles.field}
@@ -101,7 +106,6 @@ export default function Create() {
           Submit
         </Button>
       </form>
-      <br />
     </Box>
   );
 }
